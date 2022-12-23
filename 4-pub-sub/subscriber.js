@@ -13,9 +13,11 @@ const subscribeActions = {
 (async () => {
   const redisSubscriber = await RedisClient(config.redis.clients.main.db);
 
+  redisSubscriber.configSet('notify-keyspace-events', 'Ex');
+
   await redisSubscriber.subscribe(EXPIRED_SUBSCRIBE_KEY, async (message, channel) => {
-    console.log({ message })
-    console.log({ channel })
+    console.log({message})
+    console.log({channel})
     const [action, ...args] = message.split(':');
 
     subscribeActions[action](args);

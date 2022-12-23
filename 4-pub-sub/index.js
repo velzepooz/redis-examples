@@ -7,7 +7,7 @@ const STATUS_CHANGED = 'status_changed';
   const redisClient = await RedisClient(config.redis.clients.main.db);
   const userId = Math.floor(Math.random() * 99999);
   const userStatus = 'active';
-  const statusChangeInSeconds = 5;
+  const statusChangeInSeconds = 10;
 
   await redisClient.set(
     `${STATUS_CHANGED}:${userId}:${userStatus}`,

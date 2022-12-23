@@ -1,5 +1,5 @@
 {
-  "name": "1-simple-storage",
+  "name": "3-storage-with-ttl",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
